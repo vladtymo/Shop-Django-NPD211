@@ -242,14 +242,14 @@ def home(request):
     # load ...
 
     # create HTML response text
-    list = '<ul>'
-    for i in users:
-        list += f'''
-            <li>{i['name']} - {i['address']['city']}</li>
-            '''
-    list += "</ul>"
+    # list = '<ul>'
+    # for i in users:
+    #     list += f'''
+    #         <li>{i['name']} - {i['address']['city']}</li>
+    #         '''
+    # list += "</ul>"
 
-    return HttpResponse("<h1>Product Catalog!</h1>" + list)
+    return render(request, 'home.html', { 'users': users })
 
 # GET: details/id
 def details(request, id):
