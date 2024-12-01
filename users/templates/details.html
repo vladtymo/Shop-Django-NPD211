@@ -9,12 +9,12 @@
 
 <body>
     <!-- % tag % ... % endtag % -->
-    <h1>Product Catalog</h1>
-    <ul>
-        {% for i in users %}
-        <li>{{i.name}} - {{i.address.city}}</li>
-        {% endfor %}
-    </ul>
+    <h1>User Details</h1>
+    <div>
+        <p>Name: {{user.name}}</p>
+        <p>Email: {{user.email}}</p>
+        <p>City: {{user.address.city}}</p>
+    </div>
 </body>
 
 </html>

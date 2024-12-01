@@ -23,5 +23,6 @@ import products
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('products/', include('products.urls'))
+    path('products/', include('products.urls')),
+    path('users/', include('users.urls'))
 ]
