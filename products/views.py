@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from products.models import Product
+
 # MVC - Model View      Controller
 # MVT - Model Template  View
 
@@ -255,17 +257,21 @@ def home(request):
 def details(request, id):
     
     # create HTML response text
-    info = '<div>'
+    # info = '<div>'
     
     for i in users:
         if (i['id'] == id):
             user = i
             break
 
-    info += f'''
-            <p>{user['name']}</p>
-            <p>{user['address']['city']}</p>
-        '''
-    info += "</div>"
+    # info += f'''
+    #         <p>{user['name']}</p>
+    #         <p>{user['address']['city']}</p>
+    #     '''
+    # info += "</div>"
 
-    return HttpResponse("<h1>Product Details!</h1>" + info)
+    return render(request, "details.html", {'user': user})
+
+def index(request):
+    products = Product.objects.all
+    return render(request, "index.html", {'products': products})
